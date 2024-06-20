@@ -18,7 +18,6 @@ function App() {
       setPasswordLength(Number(value));
     }
   }
-  
 
   function onClickGeneratePassword() {
     let passwordCharacters = "";
@@ -34,8 +33,10 @@ function App() {
           passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         if (includeLowerCase)
           passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
-        if (includeNumber) passwordCharacters += "1234567890";
-        if (includeSymbol) passwordCharacters += "`~!@#$%^&*()_+-=/<>,.";
+        if (includeNumber) 
+          passwordCharacters += "1234567890";
+        if (includeSymbol) 
+          passwordCharacters += "`~!@#$%^&*()_+-=/<>,.";
 
         let generatedPassword = "";
 
@@ -62,17 +63,15 @@ function App() {
     }
   }
 
-  function copyToClipBoard(){
-
-    if(generatedPassword){
-      navigator.clipboard.writeText(generatedPassword)
-      Swal.fire("Password Copied")
+  function copyToClipBoard() {
+    if (generatedPassword) {
+      navigator.clipboard.writeText(generatedPassword);
+      Swal.fire("Password Copied");
     }
-    
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{overflowY:'hidden'}}>
       <div className="d-flex vh-100 align-items-center justify-content-center">
         <div className="card">
           <div className="card-body">
@@ -157,7 +156,9 @@ function App() {
                 type="text"
                 className="form-control"
               ></input>
-              <button className="btn btn-secondary" onClick={copyToClipBoard}>Copy</button>
+              <button className="btn btn-secondary" onClick={copyToClipBoard}>
+                Copy
+              </button>
             </div>
           </div>
         </div>
