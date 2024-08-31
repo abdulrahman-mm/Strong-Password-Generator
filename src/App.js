@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 function App() {
   const [passwordLength, setPasswordLength] = useState(8);
   const [includeUpperCase, setIncludeUpperCase] = useState(true);
-  const [includeLowerCase, setIncludeLowerCase] = useState(true);
   const [includeNumber, setIncludeNumber] = useState(true);
   const [includeSymbol, setIncludeSymbol] = useState(true);
   const [generatedPassword, setGeneratedPassword] = useState();
@@ -25,14 +24,11 @@ function App() {
     if (passwordLength > 5) {
       if (
         includeUpperCase ||
-        includeLowerCase ||
         includeNumber ||
         includeSymbol
       ) {
         if (includeUpperCase)
           passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        if (includeLowerCase)
-          passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
         if (includeNumber) 
           passwordCharacters += "1234567890";
         if (includeSymbol) 
@@ -103,19 +99,7 @@ function App() {
                 </label>
               </div>
 
-              <div className="form-check">
-                <input
-                  id="includeLowerCase"
-                  type="checkbox"
-                  className="form-check-input"
-                  checked={includeLowerCase}
-                  onChange={(e) => setIncludeLowerCase(e.target.checked)}
-                ></input>
-                <label htmlFor="includeLowerCase" className="form-check-label">
-                  Include LowerCase
-                </label>
-              </div>
-
+              
               <div className="form-check">
                 <input
                   id="includeNumber"
